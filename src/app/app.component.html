@@ -11,54 +11,19 @@
          [routerLink]="['/welcome']"
          routerLinkActive="active">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link"
-         [routerLink]="['/products']"
-         routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact : true}">Product List</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link"
-         [routerLink]="['/products', 0, 'edit']"
-         routerLinkActive="active">Add Product</a>
-    </li>
   </ul>
-  <!-- <ul class="navbar-nav ml-auto">
-    <li class="nav-item"
-        *ngIf="isLoggedIn">
-      <a class="nav-link">Welcome {{ userName }}</a>
-    </li>
-    <li class="nav-item"
-        *ngIf="!isMessageDisplayed">
-      <a class="nav-link"
-         (click)="displayMessages()">Show Messages</a>
-    </li>
-    <li class="nav-item"
-        *ngIf="isMessageDisplayed">
-      <a class="nav-link"
-         (click)="hideMessages()">Hide Messages</a>
-    </li>
-    <li class="nav-item"
-        *ngIf="!isLoggedIn">
-      <a class="nav-link"
-         [routerLink]="['/login']">Log In</a>
-    </li>
-    <li class="nav-item"
-        *ngIf="isLoggedIn">
-      <a class="nav-link"
-         (click)="logOut()">Log Out</a>
-    </li>
-  </ul> -->
 
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <a class="nav-link">Welcome</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Show Messages</a>
+      <a class="nav-link"
+      [routerLink]="['/userDashboard']">User</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Hide Messages</a>
+      <a class="nav-link"
+      [routerLink]="['/adminDashboard']">Admin</a>
     </li>
     <li class="nav-item">
       <a class="nav-link"

@@ -14,9 +14,9 @@ const routes: Routes = [];
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-      // { path: 'register', component: RegisterComponent }
-      // { path: 'register', component: AdminDashboardComponent}
-      { path: 'register', component: UserDashboardComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'adminDashboard', component: AdminDashboardComponent},
+      { path: 'userDashboard', component: UserDashboardComponent }
     ]
   )],
   exports: [RouterModule]
