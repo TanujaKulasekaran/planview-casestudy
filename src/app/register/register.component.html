@@ -1,0 +1,290 @@
+<div class="card">
+  <div class="card-header">
+    Sign Up!
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="save()" [formGroup] ="registerForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="firstNameId">First Name</label>
+        <div class="col-md-8">
+          <input class="form-control" id="firstNameId" type="text" placeholder="FirstName(required)"
+                 formControlName="firstName"
+                 [ngClass]="{'is-invalid' : (registerForm.get('firstName').touched ||
+                                             registerForm.get('firstName').dirty) &&
+                                             !registerForm.get('firstName').valid }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('firstName').errors?.required">
+              Please enter your first name.
+            </span>
+            <span *ngIf="registerForm.get('firstName').errors?.minlength">
+              The first name must be longer than 3 characters.
+            </span>
+            <span *ngIf="registerForm.get('firstName').errors?.pattern">
+              The first name must be alphabetic.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="lastNameId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control" id="lastNameId" type="text" placeholder="LastName(required)"
+                 formControlName="lastName"
+                 [ngClass]="{'is-invalid' : (registerForm.get('lastName').touched ||
+                                            registerForm.get('lastName').dirty) &&
+                                            !registerForm.get('lastName').valid }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('lastName').errors?.required">
+              Please enter your last name.
+            </span>
+            <span *ngIf="registerForm.get('lastName').errors?.minlength">
+              The last name must be longer than 3 characters.
+            </span>
+            <span *ngIf="registerForm.get('lastName').errors?.pattern">
+              The last name must be alphabetic.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="dateOfBirthId">Date Of Birth</label>
+        <div class="col-md-8">
+          <input class="form-control" id="dateOfBirthId" type="date" placeholder="DateOfBirth(Required)"
+                 formControlName="dateOfBirth"
+                 [ngClass]="{'is-invalid' : (registerForm.get('dateOfBirth').touched ||
+                                            registerForm.get('dateOfBirth').dirty) &&
+                                            !registerForm.get('dateOfBirth').valid }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('dateOfBirth').errors?.required">
+              Please enter your dateOfBirth.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="emailId">Email Address</label>
+        <div class="col-md-8">
+          <input class="form-control" id="emailId" type="text" placeholder="Email Address(required)"
+                 formControlName="emailAddress"
+                 [ngClass]="{'is-invalid' : emailMessage}"/>
+
+
+                 <!-- (registerForm.get('emailAddress').touched ||
+                                            registerForm.get('emailAddress').dirty) &&
+                                            !registerForm.get('emailAddress').valid }" /> -->
+
+          <span class="invalid-feedback">
+            <!-- <span *ngIf="registerForm.get('emailAddress').errors?.required">
+              Please enter your email Address.
+            </span>
+            <span *ngIf="registerForm.get('emailAddress').errors?.email">
+              Please enter proper format.
+            </span> -->
+            {{ emailMessage }}
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="addressLineId">AddressLine 1</label>
+        <div class="col-md-8">
+          <input class="form-control" id="addressLineId" type="text" placeholder="AddressLine1(Required)"
+                 formControlName="addressLine1"
+                 [ngClass]="{'is-invalid' : (registerForm.get('addressLine1').touched ||
+                                            registerForm.get('addressLine1').dirty) &&
+                                            !registerForm.get('addressLine1').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('addressLine1').errors?.required">
+              Please enter your addressLine1.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="addressLine2Id">AddressLine 2</label>
+        <div class="col-md-8">
+          <input class="form-control" id="addressLine2Id" type="text" placeholder="AddressLine2"
+                 formControlName="addressLine2"/>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="cityId">City</label>
+        <div class="col-md-8">
+          <input class="form-control" id="cityId" type="text" placeholder="City(Required)"
+                 formControlName="city"
+                 [ngClass]="{'is-invalid' : (registerForm.get('city').touched ||
+                                            registerForm.get('city').dirty) &&
+                                            !registerForm.get('city').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('city').errors?.required">
+              Please enter your city.
+            </span>
+            <span *ngIf="registerForm.get('city').errors?.pattern">
+              City must be alphabetic.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="stateId">State</label>
+        <div class="col-md-8">
+          <input class="form-control" id="stateId" type="text" placeholder="State(Required)"
+                 formControlName="state"
+                 [ngClass]="{'is-invalid' : (registerForm.get('state').touched ||
+                                            registerForm.get('state').dirty) &&
+                                            !registerForm.get('state').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('state').errors?.required">
+              Please enter your state.
+            </span>
+            <span *ngIf="registerForm.get('state').errors?.pattern">
+              State must be alphabetic.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="countryId">Country</label>
+        <div class="col-md-8">
+          <input class="form-control" id="countryId" type="text" placeholder="Country(Required)"
+                 formControlName="country"
+                 [ngClass]="{'is-invalid' : (registerForm.get('country').touched ||
+                                            registerForm.get('country').dirty) &&
+                                            !registerForm.get('country').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('country').errors?.required">
+              Please enter your country.
+            </span>
+            <span *ngIf="registerForm.get('country').errors?.pattern">
+              Country must be alphabetic.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="zipCodeId">Zip Code</label>
+        <div class="col-md-8">
+          <input class="form-control" id="zipCodeId" type="text" placeholder="Zip Code(Required)"
+                 formControlName="zipCode"
+                 [ngClass]="{'is-invalid' : (registerForm.get('zipCode').touched ||
+                                            registerForm.get('zipCode').dirty) &&
+                                            !registerForm.get('zipCode').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('zipCode').errors?.required">
+              Please enter Zip code.
+            </span>
+            <span *ngIf="registerForm.get('zipCode').errors?.pattern">
+              ZipCode should be numeric and 6 digits.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="usernameId">Username</label>
+        <div class="col-md-8">
+          <input class="form-control" id="usernameId" type="text" placeholder="Username(Required)"
+                 formControlName="username"
+                 [ngClass]="{'is-invalid' : (registerForm.get('username').touched ||
+                                            registerForm.get('username').dirty) &&
+                                            !registerForm.get('username').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('username').errors?.required">
+              Please enter your username.
+            </span>
+            <span *ngIf="registerForm.get('username').errors?.pattern">
+              Username must be alphanumeric.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div formGroupName="passwordGroup">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="passwordId">Password</label>
+        <div class="col-md-8">
+          <input class="form-control" id="passwordId" type="text" placeholder="Password(Required)"
+                 formControlName="password"
+                 [ngClass]="{'is-invalid' : (registerForm.get('passwordGroup.password').touched ||
+                                            registerForm.get('passwordGroup.password').dirty) &&
+                                            !registerForm.get('passwordGroup.password').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('passwordGroup.password').errors?.required">
+              Please enter your password.
+            </span>
+            <span *ngIf="registerForm.get('passwordGroup.password').errors?.pattern">
+              Password must follow the pattern.
+            </span>
+            <span *ngIf="registerForm.get('passwordGroup.password').errors?.minlength">
+              Password must be atleast 6 characters.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="reenterPswdId">Re-enter Password</label>
+        <div class="col-md-8">
+          <input class="form-control" id="reenterPswdId" type="text" placeholder="Re-enter Password"
+                 formControlName="reenterPassword"
+                 [ngClass]="{'is-invalid' : registerForm.get('passwordGroup').errors ||
+                                            (registerForm.get('passwordGroup.reenterPassword').touched ||
+                                            registerForm.get('passwordGroup.reenterPassword').dirty) &&
+                                            !registerForm.get('passwordGroup.reenterPassword').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('passwordGroup.reenterPassword').errors?.required">
+              Please confirm your password.
+            </span>
+            <span *ngIf="registerForm.get('passwordGroup').errors?.match">
+              Password doesn't match.
+            </span>
+        </span>
+        </div>
+      </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:80px"
+                  [title]="registerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!registerForm.valid">
+            Save
+          </button>
+        </div>
+      </div>
+
+
+    </form>
+ </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header">
+    Hi! Time to LogIn
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="login()" [formGroup] ="loginForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="usernameId">Username</label>
+        <div class="col-md-8">
+          <input class="form-control" id="usernameId" type="text" placeholder="Username(Required)"
+                 formControlName="username"
+                 [ngClass]="{'is-invalid' : (loginForm.get('username').touched ||
+                                             loginForm.get('username').dirty) &&
+                                            !loginForm.get('username').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="loginForm.get('username').errors?.required">
+              Please enter your username.
+            </span>
+            <span *ngIf="loginForm.get('username').errors?.pattern">
+              Username must be alphanumeric.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="passwordId">Password</label>
+        <div class="col-md-8">
+          <input class="form-control" id="passwordId" type="text" placeholder="Password(Required)"
+                 formControlName="password"
+                 [ngClass]="{'is-invalid' : (loginForm.get('password').touched ||
+                                             loginForm.get('password').dirty) &&
+                                            !loginForm.get('password').valid
+                                            }" />
+
+          <span class="invalid-feedback">
+            <span *ngIf="loginForm.get('password').errors?.required">
+              Please enter your password.
+            </span>
+            <span *ngIf="loginForm.get('password').errors?.pattern">
+              Password must follow the pattern.
+            </span>
+            <span *ngIf="loginForm.get('password').errors?.minlength">
+              Password must be atleast 6 characters.
+            </span>
+        </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:80px"
+                  [title]="loginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!loginForm.valid">
+            LogIn
+          </button>
+        </div>
+      </div>
+
+    </form>
+ </div>
+</div>
