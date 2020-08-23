@@ -1,3 +1,5 @@
+import { UserDashboardComponent } from './user/user.component';
+import { AdminDashboardComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,13 +13,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent
+    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

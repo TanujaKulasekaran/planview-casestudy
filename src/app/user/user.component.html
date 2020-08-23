@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header">
+    Welcome !
+  </div>
+
+  <div class="card-body">
+
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>WorkType</th>
+            <th>WorkItemDesc</th>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thurs</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Project</td>
+            <td>D1 Platform</td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+            <td>
+              <input type="number" style="width: 50px"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btn btn-outline-primary btn-sm" type="submit"
+              (click)="onSubmit()">Submit</button>
+              {{clickMessage}}
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
