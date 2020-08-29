@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    Welcome Admin !
+    <h4 style="color: rgb(212, 30, 218);">Welcome Admin !  Assign WorkItem to the Associates</h4>
   </div>
 
   <div class="card-body">
@@ -18,10 +18,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Tanuja</td>
-            <td>Kulasekaran</td>
+          <tr *ngFor="let emp of allEmployees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.firstName}}</td>
+            <td>{{emp.lastName}}</td>
             <td>
               <select (change)="changeWorkType($event.target.value)">
                 <option value="0">--SELECT--</option>
@@ -36,7 +36,7 @@
             </td>
             <td>
               <button class="btn btn-outline-primary btn-sm" *ngIf = "workItems"
-                (click)="onAssign()">Assign</button>{{clickMessage}}
+                (click)="onAssign()">Assign</button>  {{clickMessage}}
             </td>
           </tr>
         </tbody>
@@ -45,4 +45,37 @@
 
   </div>
 </div>
+
+<div class="card">
+  <div class="card-header">
+    <h4 style="color: rgb(212, 30, 218);">Edit/Delete the associate details</h4>
+  </div>
+
+  <div>
+
+    <div class="table-responsive">
+      <table class="table table mb-0">
+        <tbody>
+          <tr *ngFor="let emp of allEmployees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.firstName}}</td>
+            <td>{{emp.lastName}}</td>
+            <td>
+              <a class="btn">
+                 <i class="fa fa-edit"></i>
+              </a>
+            </td>
+            <td>
+              <a class="btn text-danger" (click) ="deleteEmployee(emp.id)">
+                 <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
 

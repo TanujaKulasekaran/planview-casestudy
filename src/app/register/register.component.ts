@@ -81,16 +81,10 @@ export class RegisterComponent implements OnInit {
     }
   }
   save() {
-    // Verified for GET service
-    // this.registerService.getAllRegisters().subscribe({
-    //   next: registers => this.registers = registers,
-    //   error: err => this.errorMessage = err
-    // });
     console.log('KeyWithValues' + JSON.stringify(this.registerForm.value));
 
     this.registerService.postRegisters(this.registerForm.value).subscribe({
-      // next: registers => this.registers = registers,
-      next(register) {
+    next(register) {
         console.log('After Subscribe' + register);
       }
 

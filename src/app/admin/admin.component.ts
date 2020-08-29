@@ -1,10 +1,16 @@
+import { IRegister } from './../register/register';
+import { AdminService } from './admin.service';
 import { Component, OnInit } from '@angular/core';
 @Component({
  templateUrl: './admin.component.html'
 })
 
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
+  constructor(private adminService: AdminService) {
 
+  }
+
+  allEmployees: IRegister[];
   clickMessage = '';
 
   workTypeList: Array<any> = [
@@ -25,4 +31,24 @@ export class AdminDashboardComponent {
     this.clickMessage = 'WorkItem assigned.';
   }
 
+  ngOnInit() {
+    this.getAllEmployees();
+  }
+
+  getAllEmployees() {
+    this.adminService.getAllEmployees().subscribe(
+    (data: IRegister[]) => {
+      this.allEmployees = data;
+    }
+    );
+  }
+
+  deleteEmployee(id: number) {
+    console.log(id);
+    this.adminService.deleteEmployee(id).subscribe(
+    (data: IRegister) => {
+      this.getAllEmployees();
+    }
+    );
+  }
 }
