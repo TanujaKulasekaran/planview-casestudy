@@ -1,6 +1,7 @@
+import { AuthService } from './../user/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoginService } from './login.service';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html'
@@ -8,12 +9,9 @@ import { LoginService } from './login.service';
 
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
-  private loginService;
   data: any;
 
-  constructor(private fb: FormBuilder, loginService: LoginService) {
-    this.loginService = loginService;
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
 
   }
 
@@ -24,28 +22,21 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    console.log('KeyWithValues' + JSON.stringify(this.loginForm.value));
-    this.data = this.loginForm.value.username;
-    console.log('FormUsername' + JSON.stringify(this.data));
+  login(loginForm) {
 
-    this.loginService.getAllRegisters(this.loginForm.value).subscribe(
-      //  next: registers => this.registers = registers,
+    if (loginForm && loginForm.valid) {
+        const userName = loginForm.value.username;
+        console.log('USERNAME ' + userName);
 
-      // next(login) {
-      //   console.log('After Subscribe' + JSON.stringify(login));
-      //   const registerData = JSON.stringify(login);
-      //   console.log('After Subscribe Username' + registerData);
-      //   if (this.data === login.username) {
-      //     console.log('Login Successfully');
-      //   } else {
-      //     console.log('Please register your account');
-      //   }
-      // }
+        this.authService.login(userName);
 
-      response => {
-            console.log(response);
-      }
-    );
+        if (userName === 'admin') {
+          this.router.navigate(['/adminDashboard']);
+
+        } else {
+        this.router.navigate(['/userDashboard']);
+        }
+    }
+
   }
 }

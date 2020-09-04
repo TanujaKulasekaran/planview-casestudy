@@ -1,4 +1,3 @@
-import { ZipCode } from './zipCode';
 import { IAlert } from './alert';
 import { RegisterService } from './register.service';
 import { Component, OnInit } from '@angular/core';

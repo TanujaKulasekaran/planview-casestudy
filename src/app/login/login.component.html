@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <form novalidate (ngSubmit)="login()" [formGroup] ="loginForm">
+    <form novalidate (ngSubmit)="login(loginForm)" [formGroup] ="loginForm">
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="usernameId">Username</label>
@@ -57,8 +57,7 @@
                   type="submit"
                   style="width:80px"
                   [title]="loginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
-                  [disabled]="!loginForm.valid"
-                  [routerLink]="['/userDashboard']">
+                  [disabled]="!loginForm.valid">
             LogIn
           </button>
         </div>
