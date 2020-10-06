@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header">
+    Compose
+  </div>
+
+  <div class="card-body">
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <input id="fromMail" type="text" placeholder="FromMail" size="50">
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <input id="ToMail" type="text" placeholder="ToMail" size="50">
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <input id="subject" type="text" placeholder="Subject" size="50">
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <input id="composeEmail" type="text" placeholder="Compose email" size="50" style="height: 4cm;">
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <button class="btn btn-primary mr-3" (click)="onSendMailClick()">
+            Send Mail
+          </button>
+          {{sendMailMessage}}
+      </div>
+    </div>
+ </div>
+</div>

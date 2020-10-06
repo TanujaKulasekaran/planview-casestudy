@@ -1,3 +1,4 @@
+import { SendMessageComponent } from './sendMessage/sendMessage.component';
 import { UserDashboardComponent } from './user/user.component';
 import { AdminDashboardComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +14,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent
+    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, SendMessageComponent
   ],
   imports: [
     BrowserModule,
