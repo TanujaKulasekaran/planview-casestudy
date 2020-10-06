@@ -1,3 +1,4 @@
+import { WorkTypeComponent } from './workType/workType.component';
 import { SendMessageComponent } from './sendMessage/sendMessage.component';
 import { UserDashboardComponent } from './user/user.component';
 import { AdminDashboardComponent } from './admin/admin.component';
@@ -14,7 +15,9 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, SendMessageComponent
+    // tslint:disable-next-line: max-line-length
+    AppComponent, RegisterComponent, WelcomeComponent, LoginComponent, AdminDashboardComponent, UserDashboardComponent, SendMessageComponent,
+    WorkTypeComponent
   ],
   imports: [
     BrowserModule,

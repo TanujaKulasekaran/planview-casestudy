@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-header">
+    Create Work Type
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="save()" [formGroup] ="workTypeForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="workTypeCodeId">WorkType Code</label>
+        <div class="col-md-8">
+          <input class="form-control" id="workTypeCodeId" type="text" placeholder="WorkTypeCode"
+                 formControlName="workTypeCode"
+                 [ngClass]="{'is-invalid' : (workTypeForm.get('workTypeCode').touched ||
+                                             workTypeForm.get('workTypeCode').dirty) &&
+                                             !workTypeForm.get('workTypeCode').valid }" />
+
+                  <span class="invalid-feedback">
+                    <span *ngIf="workTypeForm.get('workTypeCode').errors?.required">
+                    Please enter WorkType Code.
+                    </span>
+                    <span *ngIf="workTypeForm.get('workTypeCode').errors?.pattern">
+                    WorkType Code must be numeric.
+                    </span>
+                  </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="workTypeDescId">WorkType Description</label>
+        <div class="col-md-8">
+          <input class="form-control" id="workTypeDescId" type="text" placeholder="WorkTypeDesc"
+                 formControlName="workTypeDesc"
+
+                 [ngClass]="{'is-invalid' : (workTypeForm.get('workTypeDesc').touched ||
+                                             workTypeForm.get('workTypeDesc').dirty) &&
+                                             !workTypeForm.get('workTypeDesc').valid }" />
+
+                  <span class="invalid-feedback">
+                    <span *ngIf="workTypeForm.get('workTypeDesc').errors?.required">
+                    Please enter WorkType Description.
+                    </span>
+                    <span *ngIf="workTypeForm.get('workTypeDesc').errors?.pattern">
+                    WorkType Description must be alphabetic.
+                    </span>
+                  </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:80px">
+            Save
+          </button>
+          {{saveMessage}}
+        </div>
+      </div>
+
+
+    </form>
+ </div>
+</div>

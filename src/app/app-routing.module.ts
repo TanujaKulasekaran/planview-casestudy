@@ -1,3 +1,4 @@
+import { WorkTypeComponent } from './workType/workType.component';
 import { UserDashboardComponent } from './user/user.component';
 import { AdminDashboardComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +19,8 @@ const routes: Routes = [];
       { path: 'register', component: RegisterComponent },
       { path: 'adminDashboard', component: AdminDashboardComponent},
       { path: 'userDashboard', component: UserDashboardComponent },
-      { path: 'sendMessage', component: SendMessageComponent }
+      { path: 'sendMessage', component: SendMessageComponent },
+      { path: 'createWorkType', component: WorkTypeComponent}
     ]
   )],
   exports: [RouterModule]

@@ -1,0 +1,24 @@
+{
+  "workTypes": [
+    {
+      "id": 1,
+      "workTypeCode": "001",
+      "workTypeDesc": "Project"
+    },
+    {
+      "id": 2,
+      "workTypeCode": "002",
+      "workTypeDesc": "NonProject"
+    },
+    {
+      "id": 3,
+      "workTypeCode": "003",
+      "workTypeDesc": "Education"
+    },
+    {
+      "id": 4,
+      "workTypeCode": "004",
+      "workTypeDesc": "NonWork"
+    }
+  ]
+}

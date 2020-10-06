@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IRegister } from '../register/register';
+import { IWorkType } from '../workType/workType';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,11 @@ export class AdminService {
  deleteEmployee(id: number): Observable<IRegister> {
    const endpoint = '/registers' + '/' + id;
    return this.http.delete<IRegister>(this.mockUrl + endpoint);
+ }
+
+ postWorkType(workType: IWorkType): Observable<IWorkType> {
+  const endPoint = '/workTypes';
+  return this.http.post<IWorkType>(this.mockUrl + endPoint , workType);
  }
 
 }
