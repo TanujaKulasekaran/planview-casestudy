@@ -10,7 +10,20 @@
         <label class="col-md-2 col-form-label" for="workItemCodeId">WorkItem Code</label>
         <div class="col-md-8">
           <input class="form-control" id="workItemCodeId" type="text" placeholder="WorkItemCode"
-                 formControlName="workItemCode"/>
+                 formControlName="workItemCode"
+
+                 [ngClass]="{'is-invalid' : (workItemForm.get('workItemCode').touched ||
+                                             workItemForm.get('workItemCode').dirty) &&
+                                             !workItemForm.get('workItemCode').valid }" />
+
+                    <span class="invalid-feedback">
+                      <span *ngIf="workItemForm.get('workItemCode').errors?.required">
+                      Please enter WorkItem Code.
+                      </span>
+                      <span *ngIf="workItemForm.get('workItemCode').errors?.pattern">
+                      WorkItem Code must be numeric.
+                      </span>
+                    </span>
         </div>
       </div>
 
@@ -18,7 +31,20 @@
         <label class="col-md-2 col-form-label" for="workItemDescId">WorkItem Description</label>
         <div class="col-md-8">
           <input class="form-control" id="workItemDescId" type="text" placeholder="WorkItemDesc"
-                 formControlName="workItemDesc"/>
+                 formControlName="workItemDesc"
+
+                 [ngClass]="{'is-invalid' : (workItemForm.get('workItemDesc').touched ||
+                                             workItemForm.get('workItemDesc').dirty) &&
+                                             !workItemForm.get('workItemDesc').valid }" />
+
+                    <span class="invalid-feedback">
+                      <span *ngIf="workItemForm.get('workItemDesc').errors?.required">
+                      Please enter WorkItem Description.
+                      </span>
+                      <span *ngIf="workItemForm.get('workItemDesc').errors?.pattern">
+                      WorkItem Description must be alphabetic.
+                      </span>
+                    </span>
         </div>
       </div>
 
@@ -27,7 +53,8 @@
         <div class="col-md-8">
               <select class ="form-control" formControlName="workType" (change)="getWorkTypes($event)">
                 <option value="0">----------------SELECT----------------</option>
-                <option *ngFor ="let workType of workTypes">{{workType.workTypeCode + '-' + workType.workTypeDesc}} </option>
+                <option *ngFor ="let workType of workTypes" [value]="workType.workTypeCode + '-' + workType.workTypeDesc">
+                  {{workType.workTypeCode + '-' + workType.workTypeDesc}} </option>
               </select>
         </div>
       </div>
@@ -36,7 +63,8 @@
         <div class="offset-md-2 col-md-4">
           <button class="btn btn-primary mr-3"
                   type="submit"
-                  style="width:80px">
+                  style="width:80px"
+                  [disabled]="!workItemForm.valid">
             Save
           </button>
           {{saveMessage}}

@@ -19,14 +19,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   ngOnInit(): void {
     this.workItemForm = this.fb.group({
     id: [''],
-    workItemCode: [''],
-    workItemDesc: [''],
+    workItemCode: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    workItemDesc: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
     workType: ['']
     });
   }
 
   getWorkTypes(selectWorkType) {
-    console.log('Inside method');
+    console.log('Inside getWorkTypes');
     this.adminService.getWorkTypes().subscribe(
     (workTypes: IWorkType[]) => {this.workTypes = workTypes; }
     );
@@ -35,7 +35,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   }
 
   save() {
-    console.log('WorkType' + JSON.stringify(this.workItemForm.value));
+    console.log('WorkItem-->' + JSON.stringify(this.workItemForm.value));
 
     this.adminService.postWorkItem(this.workItemForm.value).subscribe({
     next(workItem) {
