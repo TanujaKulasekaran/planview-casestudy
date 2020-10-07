@@ -1,0 +1,22 @@
+{
+  "workItems": [
+    {
+      "id": 1,
+      "workItemCode": "1001",
+      "workItemDesc": "Vacation",
+      "workType": "004-NonWork"
+    },
+    {
+      "id": 2,
+      "workItemCode": "1002",
+      "workItemDesc": "SickTime",
+      "workType": "004-NonWork"
+    },
+    {
+      "id": 3,
+      "workItemCode": "1003",
+      "workItemDesc": "Training",
+      "workType": "003-Education"
+    }
+  ]
+}
