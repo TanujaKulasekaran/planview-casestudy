@@ -2,6 +2,21 @@
   "registers": [
     {
       "id": 1,
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "dateOfBirth": "01-01-2000",
+      "emailAddress": "admin@gmail.com",
+      "addressLine1": "adminNagar",
+      "addressLine2": "Ambattur",
+      "city": "Chennai",
+      "state": "TamilNadu",
+      "country": "India",
+      "zipCode": 600089,
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
       "firstName": "Tanuja",
       "lastName": "Kulasekaran",
       "dateOfBirth": "01-01-2000",
@@ -12,11 +27,11 @@
       "state": "TamilNadu",
       "country": "India",
       "zipCode": 600110,
-      "username": "Tanuja123",
+      "username": "Tanuja",
       "password": "Tanuja321"
     },
     {
-      "id": 2,
+      "id": 3,
       "firstName": "Divya",
       "lastName": "Ganesan",
       "dateOfBirth": "01-01-1999",
@@ -27,11 +42,11 @@
       "state": "TamilNadu",
       "country": "India",
       "zipCode": 600040,
-      "username": "Divya123",
+      "username": "Divya",
       "password": "Divya321"
     },
     {
-      "id": 3,
+      "id": 4,
       "firstName": "Gayathri",
       "lastName": "Ramesh",
       "dateOfBirth": "2020-08-15",
@@ -44,7 +59,7 @@
       "zipCode": "600060",
       "username": "Gayathri123",
       "passwordGroup": {
-        "password": "Gayathri321",
+        "password": "Gayathri",
         "reenterPassword": "Gayathri321"
       }
     }
