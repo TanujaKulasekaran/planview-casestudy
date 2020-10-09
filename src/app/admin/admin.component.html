@@ -4,8 +4,9 @@
   </div>
 
   <div class="card-body">
+    <form novalidate (ngSubmit)="assign()" [formGroup] ="workAssignForm">
 
-    <div class="table-responsive">
+    <div class="table-responsive form-group">
       <table class="table mb-0">
         <thead>
           <tr>
@@ -17,32 +18,36 @@
             <th></th>
           </tr>
         </thead>
+
         <tbody>
           <tr *ngFor="let emp of allEmployees">
-            <td>{{emp.id}}</td>
-            <td>{{emp.firstName}}</td>
-            <td>{{emp.lastName}}</td>
+              <td>{{emp.id}}</td>
+              <td>{{emp.firstName}}</td>
+              <td>{{emp.lastName}}</td>
+              <td>
+                  <select formControlName = "workType" (change)="selectWorkType($event)">
+                    <option value="0">----SELECT----</option>
+                    <option *ngFor ="let workType of workTypes" [value]="workType.workTypeCode + '-' + workType.workTypeDesc">
+                      {{workType.workTypeCode + '-' + workType.workTypeDesc}}</option>
+                  </select>
+                </td>
+                <td>
+                  <select formControlName = "workItem" (change)="selectWorkItem($event)">
+                    <option value="0">----SELECT----</option>
+                    <option *ngFor ="let workItem of workItems" [value]="workItem.workItemCode + '-' + workItem.workItemDesc">
+                      {{workItem.workItemCode + '-' + workItem.workItemDesc}} </option>
+                  </select>
+                </td>
             <td>
-              <select (change)="changeWorkType($event.target.value)">
-                <option value="0">--SELECT--</option>
-                <option *ngFor ="let workType of workTypeList">{{workType.name}} </option>
-            </select>
-            </td>
-            <td>
-              <select>
-                <option value="0">--SELECT--</option>
-                <option *ngFor ="let workItem of workItems">{{workItem}} </option>
-              </select>
-            </td>
-            <td>
-              <button class="btn btn-outline-primary btn-sm" *ngIf = "workItems"
-                (click)="onAssign()">Assign</button>  {{clickMessage}}
+              <button class="btn btn-outline-primary btn-sm" type="submit" >Assign</button>
+                {{clickMessage}}
             </td>
           </tr>
         </tbody>
+
       </table>
     </div>
-
+   </form>
   </div>
 </div>
 

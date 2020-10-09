@@ -1,0 +1,14 @@
+{
+  "workAssign": [
+    {
+      "id": 1,
+      "workType": "004-NonWork",
+      "workItem": "1001-Vacation"
+    },
+    {
+      "id": 2,
+      "workType": "002-NonProject",
+      "workItem": "1002-SickTime"
+    }
+  ]
+}

@@ -4,16 +4,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IRegister } from '../register/register';
 import { IWorkItem } from '../workItem/workItem';
+import { IWorkAssign } from './workAssign';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class AdminService {
+export class
+AdminService {
 
   private empMockUrl = 'http://localhost:3000';
   private workTypeMockUrl = 'http://localhost:3001';
   private workItemMockUrl = 'http://localhost:3002';
+  private workAssignMockUrl = 'http://localhost:3003';
 
   constructor(private http: HttpClient) {
   }
@@ -43,4 +46,13 @@ export class AdminService {
   return this.http.get<IWorkType[]>(this.workTypeMockUrl + endPoint);
 }
 
+getWorkItems(): Observable<IWorkItem[]> {
+  const endPoint = '/workItems';
+  return this.http.get<IWorkItem[]>(this.workItemMockUrl + endPoint);
+}
+
+postWorkAssign(workAssign: IWorkAssign): Observable<IWorkAssign> {
+  const endPoint = '/workAssign';
+  return this.http.post<IWorkAssign>(this.workAssignMockUrl + endPoint , workAssign);
+ }
 }
